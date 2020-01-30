@@ -10,10 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-
-    var redOn = 1
-    var yellowOn = 0
-    var greenOn = 0
+    
     
     @IBOutlet var redView: UIView!
     @IBOutlet var yellowView: UIView!
@@ -37,30 +34,37 @@ class ViewController: UIViewController {
         buttonPressedView.layer.cornerRadius = 5
         buttonPressedView.setTitle("Start", for: .normal)
     }
-
-
-    @IBAction func showButtonPressed() {
     
-        if redOn == 1 {
+    let on = 1
+    let off = 0
+    
+    var redOn = 1
+    var yellowOn = 0
+    var greenOn = 0
+    
+    
+    @IBAction func showButtonPressed() {
+        
+        if redOn == on {
             greenView.alpha = 0.3
             redView.alpha = 1
             buttonPressedView.setTitle("Next", for: .normal)
-            redOn = 0
-            yellowOn = 1
+            redOn = off
+            yellowOn = on
             
-        } else if yellowOn == 1 {
+        } else if yellowOn == on {
             
             redView.alpha = 0.3
             yellowView.alpha = 1
-            yellowOn = 0
-            greenOn = 1
+            yellowOn = off
+            greenOn = on
             
-        } else if greenOn == 1 {
+        } else if greenOn == on {
             
             yellowView.alpha = 0.3
             greenView.alpha = 1
-            redOn = 1
-            greenOn = 0
+            redOn = on
+            greenOn = off
         }
     }
 }
